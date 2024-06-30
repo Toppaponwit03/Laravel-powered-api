@@ -1,0 +1,67 @@
+version: '3.8'
+services:
+
+    ####################################################################################################
+    # PHP
+    ####################################################################################################
+    php:
+        build: .docker/php
+        container_name: php
+        ports:
+            - 5173:5173
+        volumes:
+            - .:/var/www:cached
+    ####################################################################################################
+    # Nginx
+    ####################################################################################################
+    nginx:
+        image: nginx
+        ports:
+            - 80:80
+        volumes:
+            - .:/var/www
+            - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - .docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+        depends_on:
+            - php
+
+    ####################################################################################################
+    # phpMyAdmin
+    ####################################################################################################
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - 8080:80
+        links:
+            - db
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            PMA_ARBITRARY: 1
+            UPLOAD_LIMIT: 15G
+        volumes:
+            - .docker/phpmyadmin/sessions:/sessions
+    ####################################################################################################
+    # Redis
+    ####################################################################################################
+    redis:
+        image: redis:latest
+        command: redis-server --appendonly yes
+        volumes:
+        - .docker/redis/data:/data
+        ports:
+        - 6379:6379
+
+    db:
+        image: mariadb:10.3
+        restart: always
+        ports:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: '123123'
+
+
+
+
+
+
