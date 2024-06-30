@@ -22,7 +22,7 @@
     " WARN  The database 'powered' does not exist on the 'mysql' connection.
      Would you like to create it? (yes/no) "
 
-    >> yes
+    "yes"
 
 
 5. Testing the API From Collection Postman
