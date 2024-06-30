@@ -28,9 +28,9 @@
 
 ### 6. Testing the API From Collection Postman
 
-   <p>Import Folder Apitest in Postman</p> 
-   
-   [Download Apitest](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Apitest) 
+   <p>Import Folder **Apitest** in Postman</p> 
+
+   <!-- [Download Apitest](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Apitest)  -->
 
 <!-- Click Download Raw file in Link Here 
 [Download Powered Api.postman_collection.json](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Powered%20Api.postman_collection.json) -->
