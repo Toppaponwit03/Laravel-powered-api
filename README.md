@@ -29,7 +29,7 @@
 ### 6. Testing the API From Collection Postman
 
 Click Download Raw file in Link Here 
-[Download example.txt](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Powered%20Api.postman_collection.json)
+[Download Powered Api.postman_collection.json](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Powered%20Api.postman_collection.json)
 
 
 
