@@ -20,10 +20,9 @@
 
 ### 5. Run migrations:
     php artisan migrate
-##
-    " WARN  The database 'powered' does not exist on the 'mysql' connection.
-     Would you like to create it? (yes/no) "
 
+   ### " WARN  The database 'powered' does not exist on the 'mysql' connection. Would you like to create it? (yes/no) "
+    
     "yes"
 
 
