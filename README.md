@@ -28,7 +28,9 @@
 
 ### 6. Testing the API From Collection Postman
 
-[Download Powered-Api-postman-collection.json](./Powered%20Api.postman_collection.json)
+<a href="./Powered%20Api.postman_collection.json" download>Dowmload API For Testing</a>
+
+<!-- [Download Powered-Api-postman-collection.json](./Powered%20Api.postman_collection.json) -->
 
 
 
