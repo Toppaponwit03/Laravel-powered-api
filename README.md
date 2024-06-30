@@ -11,12 +11,11 @@
 ### 2. Start Docker containers:
     docker-compose up -d --build
     
-### 3. Install Composer
-    composer install
-
-### 4. Enter the PHP container:
+### 3. Enter the PHP container:
     docker exec -it php bash
 
+### 4. Install Composer
+    composer install
 
 ### 5. Run migrations:
     php artisan migrate
