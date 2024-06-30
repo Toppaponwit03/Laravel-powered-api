@@ -18,7 +18,7 @@
     composer install
 
 ### 5. Run migrations
-    php artisan migrate
+    php artisan migrate 
 
 ###
    <small> - WARN The database 'powered' does not exist on the 'mysql' connection. Would you like to create it? (yes/no)</small>
@@ -28,8 +28,10 @@
 
 ### 6. Testing the API From Collection Postman
 
-Click Download Raw file in Link Here 
-[Download Powered Api.postman_collection.json](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Powered%20Api.postman_collection.json)
+    Import Folder Apitest in Postman
+
+<!-- Click Download Raw file in Link Here 
+[Download Powered Api.postman_collection.json](https://github.com/Toppaponwit03/Laravel-powered-api/blob/master/Powered%20Api.postman_collection.json) -->
 
 
 

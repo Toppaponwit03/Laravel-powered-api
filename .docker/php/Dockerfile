@@ -33,7 +33,7 @@ RUN composer global require "laravel/installer"
 
 WORKDIR /root
 
-EXPOSE 5173
+EXPOSE ${PORT_PHP}
 WORKDIR /var/www
 
 

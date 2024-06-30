@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Schema;
 class ResfullApi extends Controller
 {
   public function show($id , Request $request){
+    try{
         if($request->func == 'getData'){
             $data = category::with('SubCategory')->whereNull('parent_id')->select('id','name','parent_id')->get(); // select All
         }
@@ -46,76 +47,72 @@ class ResfullApi extends Controller
         return response()->json([
             "data" => $data
         ]);
+    }catch(Exception $e){
+        return response()->json($e->getMessage());
+    }
   }
 
   public function store(Request $request){
-      try{
-            if($request->func == 'saveCategory'){
-                $arrInsert = [];
+    try{
+        if($request->func == 'saveCategory'){
+            $arrInsert = [];
 
-                foreach($request->categories as $item){
-                    $arrInsert[] = [
-                        "name" => $item['name'],
-                        "parent_id" => @$item['parent_id'],
-                        "created_at" => now(),
-                        "updated_at" => now()
-                    ];
-                }
-
-                category::insert($arrInsert);
-
-                return response()->json($arrInsert);
+            foreach($request->categories as $item){
+                $arrInsert[] = [
+                    "name" => $item['name'],
+                    "parent_id" => @$item['parent_id'],
+                    "created_at" => now(),
+                    "updated_at" => now()
+                ];
             }
-            elseif($request->func == 'tenThoundsand'){
-                for($i=0 ; $i<=10000 ; $i++){
-                    $arrInsert[] = [
-                        "name" => "root".@$i,
-                        "parent_id" => @$i == 0 ? null : @$i,
-                        "created_at" => now(),
-                        "updated_at" => now()
-                    ];
-                }
 
-                category::insert($arrInsert);
-            }
-        }catch(Exception $e){
-            return response()->json($e->getMessage());
+            category::insert($arrInsert);
+
+            return response()->json($arrInsert);
         }
+        elseif($request->func == 'tenThoundsand'){
+            for($i=0 ; $i<=10000 ; $i++){
+                $arrInsert[] = [
+                    "name" => "root".@$i,
+                    "parent_id" => @$i == 0 ? null : @$i,
+                    "created_at" => now(),
+                    "updated_at" => now()
+                ];
+            }
 
+            category::insert($arrInsert);
+        }
+    }catch(Exception $e){
+        return response()->json($e->getMessage());
+    }
 
-
-
-  }
-
-  public function update($id){
-    return 'update';
   }
 
   public function destroy($id , Request $request){
     if($request->func == 'deleteCategory'){
-        DB::beginTransaction();
+        try {
 
-    try {
+            $category = Category::find($request->id);
+            $textResponse = '';
+            if ($category) {
+                $parentId = $category->parent_id;
 
-        $category = Category::find($request->id);
+                Category::where('parent_id', $request->id)->update(['parent_id' => $parentId]);
 
-        if ($category) {
-            $parentId = $category->parent_id;
+                $category->delete();
 
+                $textResponse ="Delete ID: ".$request->id." Successfully !";
+            }else{
+                $textResponse ="Not Have This ID in Category!";
+            }
 
-          $t =  Category::where('parent_id', $request->id)->update(['parent_id' => $parentId]);
+            DB::commit();
 
-            $category->delete();
+            return response()->json($textResponse);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return false;
         }
-
-        DB::commit();
-
-        return response()->json($t);
-    } catch (Exception $e) {
-        DB::rollBack();
-        return false;
-    }
-
     }
 
   }
