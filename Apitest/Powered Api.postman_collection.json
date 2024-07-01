@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n  \"func\" : \"getDataStanalone\",\r\n  \"id\" : 1\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,7 +122,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/resfull/0",
+					"raw": "{{URL}}/api/resfull/0?func=getDataStanalone&id=1",
 					"host": [
 						"{{URL}}"
 					],
@@ -130,6 +130,16 @@
 						"api",
 						"resfull",
 						"0"
+					],
+					"query": [
+						{
+							"key": "func",
+							"value": "getDataStanalone"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -191,7 +201,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n  \"func\" : \"getDataInsideNode\",\r\n  \"id\" :2\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -199,7 +209,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/resfull/0",
+					"raw": "{{URL}}/api/resfull/0?func=getDataInsideNode&id=1",
 					"host": [
 						"{{URL}}"
 					],
@@ -207,6 +217,16 @@
 						"api",
 						"resfull",
 						"0"
+					],
+					"query": [
+						{
+							"key": "func",
+							"value": "getDataInsideNode"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -234,7 +254,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"func\" : \"getData\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -242,7 +262,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/resfull/0",
+					"raw": "{{URL}}/api/resfull/0?func=getData",
 					"host": [
 						"{{URL}}"
 					],
@@ -250,6 +270,12 @@
 						"api",
 						"resfull",
 						"0"
+					],
+					"query": [
+						{
+							"key": "func",
+							"value": "getData"
+						}
 					]
 				},
 				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -278,7 +304,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"func\" : \"deleteCategory\",\r\n  \"id\" : 1\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -286,7 +312,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/resfull/0",
+					"raw": "{{URL}}/api/resfull/0?func=deleteCategory&id=1",
 					"host": [
 						"{{URL}}"
 					],
@@ -294,6 +320,16 @@
 						"api",
 						"resfull",
 						"0"
+					],
+					"query": [
+						{
+							"key": "func",
+							"value": "deleteCategory"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
 					]
 				},
 				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
